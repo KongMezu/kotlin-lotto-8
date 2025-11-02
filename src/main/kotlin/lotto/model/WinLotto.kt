@@ -10,6 +10,7 @@ class WinLotto(
     init {
         require(winningNumbers.size == 6) { ErrorMessage.INVALID_SIZE }
         require(winningNumbers.distinct().size == winningNumbers.size) { ErrorMessage.DUPLICATE_NUMBER }
+        require(bonusNumber !in winningNumbers) { ErrorMessage.DUPLICATE_NUMBER }
     }
 
     fun evaluate(lotto: Lotto): Rank {
